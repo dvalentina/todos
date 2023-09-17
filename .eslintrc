@@ -50,6 +50,10 @@
         "always"
       ],
       "no-console": "off",
+      "no-confusing-arrow": "off",
+      "react/prop-types": "off",
+      "react/require-default-props": "off",
+      "react/no-unused-prop-types": "off",
       "import/no-named-as-default": 0,
       "react/jsx-filename-extension": [
         1,

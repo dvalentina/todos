@@ -1,7 +1,7 @@
 import React from 'react';
 
+import Card from './components/Card';
 import { Container, Title } from './App.styled';
-import Card from './Card';
 
 function App() {
   return (
