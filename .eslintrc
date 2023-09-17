@@ -6,7 +6,8 @@
       "plugin:react/recommended",
       "stylelint",
       "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
+      "plugin:styled-components-a11y/recommended"
     ],
     "parserOptions": {
       "ecmaVersion": "latest",
@@ -17,7 +18,8 @@
       "import",
       "react",
       "prettier",
-      "simple-import-sort"
+      "simple-import-sort",
+      "styled-components-a11y"
     ],
     "settings": {
       "react": {
