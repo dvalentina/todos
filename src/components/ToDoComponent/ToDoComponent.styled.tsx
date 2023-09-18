@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Text as HelperText } from '../helpers/Text';
+import { Text as HelperText } from '../../helpers/Text';
 
 export const Container = styled.div`
   display: flex;

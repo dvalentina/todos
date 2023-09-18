@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from './components/Card';
+import Card from './components/Card/Card';
 import { Container, Title } from './App.styled';
 
 function App() {
