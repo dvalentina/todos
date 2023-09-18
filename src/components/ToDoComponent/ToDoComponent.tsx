@@ -1,32 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Checkbox, CheckboxWrapper, CheckIcon, Container, Label, Text } from './ToDoComponent.styled';
 
 interface IToDoComponent {
   label: string;
-  checked?: boolean;
+  checked: boolean;
+  id: string;
+  handleClick: (id: string) => void;
 }
 
-function ToDoComponent({ label, checked }: IToDoComponent) {
-  const defaultChecked = checked || false;
-  const [isChecked, setIsChecked] = useState(defaultChecked);
-
+function ToDoComponent({ label, checked, id, handleClick }: IToDoComponent) {
   const handleChange = () => {
-    setIsChecked((prev) => !prev);
+    handleClick(id);
   };
 
   return (
     <Container>
-      <Label htmlFor={label}>
+      <Label htmlFor={id}>
         <CheckboxWrapper>
-          {isChecked ? (
+          {checked ? (
             <CheckIcon viewBox="0 0 24 24">
               <polyline points="20 6 9 17 4 12" />
             </CheckIcon>
           ) : null}
-          <Checkbox checked={isChecked} onChange={handleChange} id={label} />
+          <Checkbox checked={checked} onChange={handleChange} id={id} />
         </CheckboxWrapper>
-        <Text checked={isChecked}>{label}</Text>
+        <Text checked={checked}>{label}</Text>
       </Label>
     </Container>
   );
