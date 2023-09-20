@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { generateId } from '../../utils';
 import AddToDo from '../AddToDo';
+import Button from '../Button';
+import ButtonGroup from '../ButtonGroup';
 import ToDoComponent from '../ToDoComponent';
 
 import { Card as StyledCard } from './Card.styled';
@@ -20,6 +22,9 @@ function Card() {
   ]);
   const [toDoComponents, setToDoComponents] = useState<React.JSX.Element[]>([]);
 
+  const filterOptions = ['All', 'Active', 'Completed'];
+  const [chosen, setChosen] = useState(filterOptions[0]);
+
   const addToDo = (text: string) => {
     setToDos((prev) => [...prev, { text, done: false, id: generateId(text) }]);
   };
@@ -36,6 +41,10 @@ function Card() {
     );
   };
 
+  const handleChoose = (option: string) => {
+    setChosen(option);
+  };
+
   useEffect(() => {
     setToDoComponents(
       toDos.map((toDo) => (
@@ -48,6 +57,8 @@ function Card() {
     <StyledCard>
       <AddToDo addToDo={addToDo} />
       {toDoComponents}
+      <Button bordered>Clear all</Button>
+      <ButtonGroup options={filterOptions} chosen={chosen} handleChoose={handleChoose} />
     </StyledCard>
   );
 }
