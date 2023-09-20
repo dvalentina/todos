@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { Text as HelperText } from '../../helpers/Text';
-
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -51,10 +49,14 @@ export const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   }
 `;
 
-export const Text = styled(HelperText)`
+interface IText {
+  checked?: boolean;
+}
+
+export const Text = styled.span<IText>`
   margin: 0;
   font-weight: 300;
   font-size: 25px;
-  color: ${(props) => (props.checked ? '#dbdbdb' : 'black')};
-  text-decoration: ${(props) => (props.checked ? 'line-through' : 'none')};
+  color: ${({ checked }) => (checked ? '#dbdbdb' : 'black')};
+  text-decoration: ${({ checked }) => (checked ? 'line-through' : 'none')};
 `;

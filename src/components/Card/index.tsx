@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import { generateId } from '../../utils';
-import AddToDo from '../AddToDo/AddToDo';
-import ToDoComponent from '../ToDoComponent/ToDoComponent';
+import AddToDo from '../AddToDo';
+import ToDoComponent from '../ToDoComponent';
 
 import { Card as StyledCard } from './Card.styled';
 
