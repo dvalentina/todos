@@ -24,6 +24,8 @@ function App() {
   const filterOptions = ['All', 'Active', 'Completed'];
   const [chosen, setChosen] = useState(filterOptions[0]);
 
+  const [counter, setCounter] = useState(toDos.filter((toDo) => !toDo.done).length);
+
   const addToDo = (text: string) => {
     setToDos((prev) => [...prev, { text, done: false, id: generateId(text) }]);
   };
@@ -54,6 +56,7 @@ function App() {
         <ToDoComponent label={toDo.text} key={toDo.id} id={toDo.id} checked={toDo.done} handleClick={handleToDoClick} />
       )),
     );
+    setCounter(toDos.filter((toDo) => !toDo.done).length);
   }, [toDos]);
 
   return (
@@ -68,6 +71,7 @@ function App() {
             chosen={chosen}
             handleChoose={handleChoose}
             handleClear={handleClearCompleted}
+            counter={counter}
           />
         ) : null}
       </Card>

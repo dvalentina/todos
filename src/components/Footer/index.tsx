@@ -7,13 +7,14 @@ import { ClearContainer, Container, Counter, CounterContainer } from './Footer.s
 
 interface IFooter extends IButtonGroup {
   handleClear: () => void;
+  counter: number;
 }
 
-function Footer({ options, chosen, handleChoose, handleClear }: IFooter) {
+function Footer({ options, chosen, handleChoose, handleClear, counter }: IFooter) {
   return (
     <Container>
       <CounterContainer>
-        <Counter>2 items left</Counter>
+        <Counter>{`${counter} item${counter !== 1 ? 's' : ''} left`}</Counter>
       </CounterContainer>
       <ButtonGroup options={options} chosen={chosen} handleChoose={handleChoose} />
       <ClearContainer>
