@@ -18,6 +18,7 @@ function AddToDo({ addToDo }: IAddToDo) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addToDo(value);
+    setValue('');
   };
 
   return (
