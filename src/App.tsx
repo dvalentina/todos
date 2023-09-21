@@ -44,6 +44,10 @@ function App() {
     setChosen(option);
   };
 
+  const handleClearCompleted = () => {
+    setToDos((prev) => prev.filter((toDo) => !toDo.done));
+  };
+
   useEffect(() => {
     setToDoComponents(
       toDos.map((toDo) => (
@@ -58,14 +62,14 @@ function App() {
       <Card>
         <AddToDo addToDo={addToDo} />
         {toDoComponents}
-        <Footer
-          options={filterOptions}
-          chosen={chosen}
-          handleChoose={handleChoose}
-          handleClear={() => {
-            console.log('clear');
-          }}
-        />
+        {toDos.length !== 0 ? (
+          <Footer
+            options={filterOptions}
+            chosen={chosen}
+            handleChoose={handleChoose}
+            handleClear={handleClearCompleted}
+          />
+        ) : null}
       </Card>
     </Container>
   );
