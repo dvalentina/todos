@@ -13,17 +13,21 @@ interface IToDo {
   id: string;
 }
 
+enum FilterOptions {
+  All = 'All',
+  Active = 'Active',
+  Completed = 'Completed',
+}
+
 function App() {
   const [toDos, setToDos] = useState<IToDo[]>([
     { text: 'Тестовое задание', done: false, id: generateId('Тестовое задание') },
     { text: 'Прекрасный код', done: true, id: generateId('Прекрасный код') },
     { text: 'Покрытие тестами', done: false, id: generateId('Покрытие тестами') },
   ]);
+  const [filteredToDos, setFilteredToDos] = useState<IToDo[]>(toDos);
   const [toDoComponents, setToDoComponents] = useState<React.JSX.Element[]>([]);
-
-  const filterOptions = ['All', 'Active', 'Completed'];
-  const [chosen, setChosen] = useState(filterOptions[0]);
-
+  const [chosen, setChosen] = useState<string>(FilterOptions.All);
   const [counter, setCounter] = useState(toDos.filter((toDo) => !toDo.done).length);
 
   const addToDo = (text: string) => {
@@ -51,13 +55,30 @@ function App() {
   };
 
   useEffect(() => {
+    setCounter(toDos.filter((toDo) => !toDo.done).length);
+  }, [toDos]);
+
+  useEffect(() => {
+    switch (chosen) {
+      case FilterOptions.Active:
+        setFilteredToDos(toDos.filter((toDo) => !toDo.done));
+        break;
+      case FilterOptions.Completed:
+        setFilteredToDos(toDos.filter((toDo) => toDo.done));
+        break;
+      default:
+        setFilteredToDos(toDos);
+        break;
+    }
+  }, [chosen, toDos]);
+
+  useEffect(() => {
     setToDoComponents(
-      toDos.map((toDo) => (
+      filteredToDos.map((toDo) => (
         <ToDoComponent label={toDo.text} key={toDo.id} id={toDo.id} checked={toDo.done} handleClick={handleToDoClick} />
       )),
     );
-    setCounter(toDos.filter((toDo) => !toDo.done).length);
-  }, [toDos]);
+  }, [filteredToDos]);
 
   return (
     <Container>
@@ -67,7 +88,7 @@ function App() {
         {toDoComponents}
         {toDos.length !== 0 ? (
           <Footer
-            options={filterOptions}
+            options={Object.values(FilterOptions)}
             chosen={chosen}
             handleChoose={handleChoose}
             handleClear={handleClearCompleted}
