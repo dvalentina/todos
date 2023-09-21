@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { generateId } from '../../utils';
 import AddToDo from '../AddToDo';
-import Button from '../Button';
-import ButtonGroup from '../ButtonGroup';
+import Footer from '../Footer';
 import ToDoComponent from '../ToDoComponent';
 
 import { Card as StyledCard } from './Card.styled';
@@ -57,8 +56,14 @@ function Card() {
     <StyledCard>
       <AddToDo addToDo={addToDo} />
       {toDoComponents}
-      <Button bordered>Clear all</Button>
-      <ButtonGroup options={filterOptions} chosen={chosen} handleChoose={handleChoose} />
+      <Footer
+        options={filterOptions}
+        chosen={chosen}
+        handleChoose={handleChoose}
+        handleClear={() => {
+          console.log('clear');
+        }}
+      />
     </StyledCard>
   );
 }

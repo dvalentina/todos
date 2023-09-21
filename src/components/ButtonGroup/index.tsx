@@ -4,7 +4,7 @@ import Button from '../Button';
 
 import { Container } from './ButtonGroup.styled';
 
-interface IButtonGroup {
+export interface IButtonGroup {
   options: string[];
   chosen: string;
   handleChoose: (chosen: string) => void;
