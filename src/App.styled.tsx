@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 15px;
   padding-top: 50px;
+  padding-bottom: 115px;
 `;
 
 export const Title = styled.h1`
