@@ -6,6 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   height: 41px;
   position: relative;
+  border-top: 1px solid #dbdbdb;
 `;
 
 export const Counter = styled.span`

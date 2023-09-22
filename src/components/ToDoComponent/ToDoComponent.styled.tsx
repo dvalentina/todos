@@ -4,9 +4,12 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   height: 60px;
-  border-bottom: 1px solid #dbdbdb;
   padding-left: 5px;
   padding-right: 20px;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #dbdbdb;
+  }
 `;
 
 export const Label = styled.label`

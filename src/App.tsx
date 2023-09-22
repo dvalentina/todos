@@ -4,7 +4,7 @@ import AddToDo from './components/AddToDo';
 import Card from './components/Card';
 import Footer from './components/Footer';
 import ToDoComponent from './components/ToDoComponent';
-import { Container, Title } from './App.styled';
+import { Container, NotFound, Title, ToDosContainer } from './App.styled';
 import { generateId } from './utils';
 
 interface IToDo {
@@ -85,7 +85,10 @@ function App() {
       <Title>todos</Title>
       <Card>
         <AddToDo addToDo={addToDo} />
-        {toDoComponents}
+        <ToDosContainer>{toDoComponents}</ToDosContainer>
+        {toDos.length !== 0 && toDoComponents.length === 0 ? (
+          <NotFound>Nothing here. Try a different filter option?</NotFound>
+        ) : null}
         {toDos.length !== 0 ? (
           <Footer
             options={Object.values(FilterOptions)}
