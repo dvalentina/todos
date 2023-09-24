@@ -12,13 +12,15 @@ interface IFooter extends IButtonGroup {
 
 function Footer({ options, chosen, handleChoose, handleClear, counter }: IFooter) {
   return (
-    <Container>
+    <Container data-testid="footer">
       <CounterContainer>
-        <Counter>{`${counter} item${counter !== 1 ? 's' : ''} left`}</Counter>
+        <Counter data-testid="counter">{`${counter} item${counter !== 1 ? 's' : ''} left`}</Counter>
       </CounterContainer>
-      <ButtonGroup options={options} chosen={chosen} handleChoose={handleChoose} />
+      <ButtonGroup dataTestId="filter" options={options} chosen={chosen} handleChoose={handleChoose} />
       <ClearContainer>
-        <Button onClick={handleClear}>Clear completed</Button>
+        <Button dataTestId="clear-button" onClick={handleClear}>
+          Clear completed
+        </Button>
       </ClearContainer>
     </Container>
   );

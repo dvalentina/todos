@@ -87,7 +87,7 @@ function App() {
         <AddToDo addToDo={addToDo} />
         <ToDosContainer>{toDoComponents}</ToDosContainer>
         {toDos.length !== 0 && toDoComponents.length === 0 ? (
-          <NotFound>Nothing here. Try a different filter option?</NotFound>
+          <NotFound data-testid="not-found">Nothing here. Try a different filter option?</NotFound>
         ) : null}
         {toDos.length !== 0 ? (
           <Footer

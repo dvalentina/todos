@@ -6,11 +6,12 @@ export interface IButton {
   children?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   bordered?: boolean;
+  dataTestId?: string;
 }
 
-function Button({ children, onClick, bordered }: IButton) {
+function Button({ children, onClick, bordered, dataTestId }: IButton) {
   return (
-    <StyledButton onClick={onClick} bordered={bordered}>
+    <StyledButton onClick={onClick} bordered={bordered} data-testid={dataTestId}>
       {children}
     </StyledButton>
   );

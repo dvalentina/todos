@@ -15,8 +15,8 @@ function ToDoComponent({ label, checked, id, handleClick }: IToDoComponent) {
   };
 
   return (
-    <Container>
-      <Label htmlFor={id}>
+    <Container data-testid="to-do-component">
+      <Label htmlFor={id} data-testid="to-do-label">
         <CheckboxWrapper>
           {checked ? (
             <CheckIcon viewBox="0 0 24 24">

@@ -30,7 +30,7 @@ function AddToDo({ addToDo }: IAddToDo) {
       <Icon>
         <DownIcon />
       </Icon>
-      <Input placeholder="What needs to be done?" value={value} onChange={handleChange} />
+      <Input data-testid="to-do-input" placeholder="What needs to be done?" value={value} onChange={handleChange} />
     </Container>
   );
 }
