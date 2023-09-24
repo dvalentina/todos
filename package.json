@@ -1,6 +1,7 @@
 {
   "name": "todos",
   "version": "0.1.0",
+  "homepage": "https://dvalentina.github.io/todos",
   "private": true,
   "type": "module",
   "engines": {
@@ -25,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +61,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-styled-components-a11y": "^2.1.31",
+    "gh-pages": "^6.0.0",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
