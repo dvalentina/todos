@@ -26,10 +26,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "CI=true npm test",
     "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
     "eject": "react-scripts eject",
-    "predeploy": "npm run test && npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run test:ci && npm run build",
+    "deploy": "gh-pages -d build",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "eslint": "^8.20.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -63,10 +66,10 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-styled-components-a11y": "^2.1.31",
     "gh-pages": "^6.0.0",
+    "husky": "^8.0.3",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^26.0.0",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "stylelint-config-standard": "^26.0.0"
   }
 }
