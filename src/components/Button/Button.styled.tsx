@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
-import { IButton } from '.';
+interface IStyledButton {
+  children?: React.ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  dataTestId?: string;
+  $bordered?: boolean;
+}
 
-export const Button = styled.button<IButton>`
-  border: ${({ bordered }) => (bordered ? '1px solid #e9d9d8' : '1px solid transparent')};
+export const Button = styled.button<IStyledButton>`
+  border: ${({ $bordered }) => ($bordered ? '1px solid #e9d9d8' : '1px solid transparent')};
   outline: none;
   font-size: 14px;
   font-weight: 300;

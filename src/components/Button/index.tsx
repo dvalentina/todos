@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button as StyledButton } from './Button.styled';
 
-export interface IButton {
+interface IButton {
   children?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   bordered?: boolean;
@@ -11,7 +11,7 @@ export interface IButton {
 
 function Button({ children, onClick, bordered, dataTestId }: IButton) {
   return (
-    <StyledButton onClick={onClick} bordered={bordered} data-testid={dataTestId}>
+    <StyledButton onClick={onClick} $bordered={bordered} data-testid={dataTestId}>
       {children}
     </StyledButton>
   );
