@@ -7,6 +7,9 @@ export const Container = styled.div`
   gap: 15px;
   padding-top: 50px;
   padding-bottom: 115px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
 `;
 
 export const Title = styled.h1`
@@ -28,3 +31,15 @@ export const NotFound = styled.div`
 `;
 
 export const ToDosContainer = styled.div``;
+
+export const Signature = styled.div`
+  font-size: 14px;
+  font-weight: 300;
+  color: #9b9b9b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  position: absolute;
+  bottom: 28px;
+`;

@@ -4,7 +4,7 @@ import AddToDo from './components/AddToDo';
 import Card from './components/Card';
 import Footer from './components/Footer';
 import ToDoComponent from './components/ToDoComponent';
-import { Container, NotFound, Title, ToDosContainer } from './App.styled';
+import { Container, NotFound, Signature, Title, ToDosContainer } from './App.styled';
 import { generateId } from './utils';
 
 interface IToDo {
@@ -99,6 +99,7 @@ function App() {
           />
         ) : null}
       </Card>
+      <Signature>Test assignment for Mindbox. Danilova Valentina, 2023</Signature>
     </Container>
   );
 }
